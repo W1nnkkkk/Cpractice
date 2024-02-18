@@ -1,0 +1,3 @@
+/home/kirill/practice13C/src/build/CMakeFiles/practice.dir
+/home/kirill/practice13C/src/build/CMakeFiles/edit_cache.dir
+/home/kirill/practice13C/src/build/CMakeFiles/rebuild_cache.dir
