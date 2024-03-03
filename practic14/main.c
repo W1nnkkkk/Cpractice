@@ -1,7 +1,11 @@
 #include "stack.h"
 
 #define STUD struct students
-#define CHECK(ag1, ag2) _args.stack->data->age >= ag1 && _args.stack->data->age <= ag2
+#define CHECK(ag1, ag2)                                                                \
+  ({                                                                                   \
+    int result = (args.stack->data->age >= (ag1) && args.stack->data->age <= (ag2)); \
+    result;                                                                            \
+  })
 
 int main(int argc, char const *argv[])
 {
@@ -9,30 +13,32 @@ int main(int argc, char const *argv[])
   unsigned int n = 0;
   scanf("%d", &n);
 
-  STUD *stud = NULL;
+  STUD *stud = (STUD*) malloc(sizeof(STUD));
   stud = stud_init(stud);
-  OBJ *stack = NULL;
+  stud = openForReading(stud);
+  Stack *stack = (Stack*) malloc(sizeof(Stack));
+  stack = stackInit(stack);
 
-  struct args _args;
-  _args.stack = stack;
-  _args.stud = stud;
 
-  for (int i = 0; i < n; ++i)
-  {
-    _args.stud = studReadFromFile(_args.stud);
-    _args.stack = push(&_args);
-  }
+   struct args args;
+   args.stack = stack;
+   args.stud = stud;
 
-  for (int i = 0; i < n; ++i)
-  {
-    if (CHECK(16, 18))
-    {
-      printf("%s %s %d\n", _args.stack->data->family, _args.stack->data->name, _args.stack->data->age);
-    }
-    _args.stack = pop(_args.stack);
-  }
+   for (int i = 0; i < n; ++i)
+   {
+     args.stud = studReadFromFile(args.stud);
+     args.stack = push(&args);
+   }
 
-    
+   for (int i = 0; i < n; ++i)
+   {
+     if (CHECK(16, 18))
+     {
+       printf("%s %s %d\n", args.stack->data->family, args.stack->data->name, args.stack->data->age);
+     }
+     args.stack = pop(args.stack);
+   }
+
   stud_destroy(stud);
 
   return 0;

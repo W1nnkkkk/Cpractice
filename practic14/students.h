@@ -23,6 +23,10 @@ void *stud_print(void *stud);
 
 void *stud_init(void *stud);
 
+void *studWriteToFile(void *stud);
+
+void *openForReading(void* stud);
+
 void *studReadFromFile(void *stud);
 
 void *stud_destroy(void *stud);

@@ -7,17 +7,22 @@ typedef struct node
 {
   Students *data;
   struct node *next;
-} OBJ;
+
+  void *(*push)(void *);
+  void *(*pop)(void *);
+} Stack;
 
 struct args
 {
-    OBJ* stack;
-    struct students* stud;
+  Stack *stack;
+  struct students *stud;
 };
+
+void *stackInit(void *stack);
 
 void *clone_students(void *data);
 
-void *push(void* args);
+void *push(void *args);
 
 void *pop(void *top);
 

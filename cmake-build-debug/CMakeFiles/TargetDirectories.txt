@@ -1,0 +1,3 @@
+/home/kirill/cpractice/cmake-build-debug/CMakeFiles/cpractice.dir
+/home/kirill/cpractice/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kirill/cpractice/cmake-build-debug/CMakeFiles/rebuild_cache.dir

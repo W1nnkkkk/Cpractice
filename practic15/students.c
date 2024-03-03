@@ -58,12 +58,10 @@ void *studReadFromFile(void *stud)
 
   f = fopen("test.txt", "r");
 
-  ++i;
+  fseek(f, sizeof(*tmp) * i, SEEK_SET);
+  fread(tmp, sizeof(*tmp), 1, f);
 
-  for (size_t s = 0; s < i; s++)
-  {
-    fread(tmp, 1, sizeof(*tmp), f);
-  }
+  ++i;
 
   fclose(f);
 

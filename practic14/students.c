@@ -2,8 +2,7 @@
 
 void *stud_input(void *stud)
 {
-  struct students *tmp = (struct students *)malloc(sizeof(struct students));
-  struct students *original = stud;
+  struct students *tmp = stud;
 
   printf("Для начала введите анкетную информацию о студенте: ");
   printf("Фамилия, Имя: ");
@@ -13,10 +12,9 @@ void *stud_input(void *stud)
   printf("Возраст и оценки по математике, химии и физике: ");
   scanf("%d %d %d %d", &tmp->age, &tmp->mathMark, &tmp->chemistryMark, &tmp->physicsMark);
 
-  *original = *tmp;
-  free(tmp);
+  studWriteToFile(tmp);
 
-  return original;
+  return tmp;
 }
 
 void *stud_print(void *stud)
@@ -35,14 +33,49 @@ void *stud_print(void *stud)
 
 void *stud_init(void *stud)
 {
-  stud = (struct students *)malloc(sizeof(struct students));
   struct students *tmp = stud;
 
-  tmp->f = fopen(PATH, "r");
   tmp->input = stud_input;
   tmp->print = stud_print;
 
   return tmp;
+}
+
+void *studWriteToFile(void *stud)
+{
+  struct students *tmp = stud;
+
+  FILE *file = fopen(PATH, "a");
+
+  fprintf(file, "%s", tmp->family);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%s", tmp->name);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%s", tmp->gender);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%s", tmp->group);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%d", tmp->age);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%d", tmp->mathMark);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%d", tmp->chemistryMark);
+    fprintf(file, "%c", ' ');
+  fprintf(file, "%d", tmp->physicsMark);
+    fprintf(file, "%s", "\n");
+
+  fclose(file);
+
+  return tmp;
+}
+
+void *openForReading(void* stud)
+{
+    struct students *tmp = stud;
+
+    tmp->f = fopen(PATH, "r");
+
+    return tmp;
 }
 
 void *studReadFromFile(void *stud)

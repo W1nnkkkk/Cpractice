@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
   stud = stud_init(stud);
   OBJ *stack = NULL;
 
+
   struct args _args;
   _args.stack = stack;
   _args.stud = stud;
