@@ -1,9 +1,12 @@
 #include "stack.h"
 
+
 #define STUD struct students
 #define CHECK(ag1, ag2)                                                                \
   ({                                                                                   \
-    int result = (args.stack->data->age >= (ag1) && args.stack->data->age <= (ag2)); \
+    typeof(ag1) _ag1 = ag1;                                                             \
+    typeof(ag2) _ag2 = ag2;                                                              \
+    int result = (args.stack->data->age >= (_ag1) && args.stack->data->age <= (_ag2)); \
     result;                                                                            \
   })
 
@@ -14,7 +17,7 @@ int main(int argc, char const *argv[])
   scanf("%d", &n);
 
   STUD *stud = (STUD*) malloc(sizeof(STUD));
-  stud = stud_init(stud);
+  Students(stud);
   stud = openForReading(stud);
   Stack *stack = (Stack*) malloc(sizeof(Stack));
   stack = stackInit(stack);
@@ -29,6 +32,7 @@ int main(int argc, char const *argv[])
      args.stud = studReadFromFile(args.stud);
      args.stack = push(&args);
    }
+
 
    for (int i = 0; i < n; ++i)
    {

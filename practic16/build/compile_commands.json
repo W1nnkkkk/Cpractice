@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/kirill/practice13C/src/build",
+  "command": "/usr/bin/gcc -g -o CMakeFiles/practice.dir/main.c.o -c /home/kirill/practice13C/src/main.c",
+  "file": "/home/kirill/practice13C/src/main.c",
+  "output": "CMakeFiles/practice.dir/main.c.o"
+},
+{
+  "directory": "/home/kirill/practice13C/src/build",
+  "command": "/usr/bin/gcc -g -o CMakeFiles/practice.dir/stack.c.o -c /home/kirill/practice13C/src/stack.c",
+  "file": "/home/kirill/practice13C/src/stack.c",
+  "output": "CMakeFiles/practice.dir/stack.c.o"
+},
+{
+  "directory": "/home/kirill/practice13C/src/build",
+  "command": "/usr/bin/gcc -g -o CMakeFiles/practice.dir/students.c.o -c /home/kirill/practice13C/src/students.c",
+  "file": "/home/kirill/practice13C/src/students.c",
+  "output": "CMakeFiles/practice.dir/students.c.o"
+}
+]

@@ -1,3 +1,5 @@
+#ifndef STACK_H
+#define STACK_H
 #include "students.h"
 
 typedef struct node
@@ -17,3 +19,5 @@ void *clone_students(void *data);
 void *push(void* args);
 
 void *pop(void *top);
+
+#endif STACK_H

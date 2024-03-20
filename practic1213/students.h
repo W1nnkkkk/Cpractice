@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define Students(stud) stud = stud_init(stud);
+
 typedef struct students
 {
   char family[20], name[20];

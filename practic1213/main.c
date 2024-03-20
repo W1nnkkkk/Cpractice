@@ -1,11 +1,7 @@
 #include "stack.h"
 
 #define STUD struct students
-#define CHECK(ag1, ag2) _args.stack->data->age >= ag1 &&_args.stack->data->age <= ag2
-
-// #define MULTIPLY(a) a*a - в данном случае может произойти ub (Undefined behavior) если аргументом передать что-то по типу 2+2,
-// макрос вполне может посчитать это аргументом и подстановка будет выглядеть как: 2+2*2+2 для защиты стоит оставлять круглые скобки:
-// #define MULTIPLY(a) (a)*(a)
+#define CHECK(ag1, ag2) _args.stack->data->age >= ag1 && _args.stack->data->age <= ag2
 
 int main(int argc, char const *argv[])
 {
@@ -14,7 +10,7 @@ int main(int argc, char const *argv[])
   scanf("%d", &n);
 
   STUD *stud = NULL;
-  stud = stud_init(stud);
+  Students(stud);
   OBJ *stack = NULL;
 
   struct args _args;

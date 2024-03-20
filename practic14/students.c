@@ -35,6 +35,7 @@ void *stud_init(void *stud)
 {
   struct students *tmp = stud;
 
+  tmp->f = fopen(PATH, "r");
   tmp->input = stud_input;
   tmp->print = stud_print;
 
@@ -45,37 +46,20 @@ void *studWriteToFile(void *stud)
 {
   struct students *tmp = stud;
 
-  FILE *file = fopen(PATH, "a");
+  FILE *file = fopen("test.txt", "w");
 
-  fprintf(file, "%s", tmp->family);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%s", tmp->name);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%s", tmp->gender);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%s", tmp->group);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%d", tmp->age);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%d", tmp->mathMark);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%d", tmp->chemistryMark);
-    fprintf(file, "%c", ' ');
-  fprintf(file, "%d", tmp->physicsMark);
-    fprintf(file, "%s", "\n");
+  fprintf(file, "%s", tmp->family + ' ');
+  fprintf(file, "%s", tmp->name + ' ');
+  fprintf(file, "%s", tmp->gender + ' ');
+  fprintf(file, "%s", tmp->group + ' ');
+  fprintf(file, "%d", tmp->age + ' ');
+  fprintf(file, "%d", tmp->mathMark + ' ');
+  fprintf(file, "%d", tmp->chemistryMark + ' ');
+  fprintf(file, "%d", tmp->physicsMark + '\n');
 
   fclose(file);
 
   return tmp;
-}
-
-void *openForReading(void* stud)
-{
-    struct students *tmp = stud;
-
-    tmp->f = fopen(PATH, "r");
-
-    return tmp;
 }
 
 void *studReadFromFile(void *stud)

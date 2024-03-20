@@ -1,6 +1,6 @@
 #include "students.h"
 
-static int i = 0;
+static int size = 0;
 
 void *stud_input(void *stud)
 {
@@ -16,9 +16,9 @@ void *stud_input(void *stud)
 
   FILE *file;
 
-  file = fopen("test.txt", "a");
+  file = fopen(PATH, "a");
 
-  fwrite(tmp, 1, sizeof(*tmp), file);
+  fwrite(tmp, sizeof(*tmp), 1, file);
 
   fclose(file);
 
@@ -56,12 +56,14 @@ void *studReadFromFile(void *stud)
 
   FILE *f;
 
-  f = fopen("test.txt", "r");
+  f = fopen(PATH, "rb");
 
-  fseek(f, sizeof(*tmp) * i, SEEK_SET);
+  int offset = sizeof(*tmp) * size;
+
+  fseek(f, offset, SEEK_SET);
   fread(tmp, sizeof(*tmp), 1, f);
 
-  ++i;
+  size++;
 
   fclose(f);
 

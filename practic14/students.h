@@ -6,6 +6,7 @@
 #include <string.h>
 
 #define PATH "test.txt"
+#define Students(stud) stud = stud_init(stud)
 
 typedef struct students
 {

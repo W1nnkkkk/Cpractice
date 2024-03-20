@@ -19,7 +19,7 @@ void *clone_students(void *data)
 
 void *push(void* args)
 {
-  OBJ *new = (OBJ *)malloc(sizeof(OBJ));
+  Stack *new = (Stack *)malloc(sizeof(Stack));
 
   struct args* _arg = args;
 
@@ -31,11 +31,11 @@ void *push(void* args)
 
 void *pop(void *top)
 {
-  OBJ *tmp = top;
+    Stack *tmp = top;
   if (tmp == NULL)
     return tmp;
 
-  OBJ *next = tmp->next;
+  Stack *next = tmp->next;
   free(top);
   return next;
 }

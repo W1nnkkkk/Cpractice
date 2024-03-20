@@ -1,38 +1,45 @@
 #include "stack.h"
 
+
 #define STUD struct students
-#define CHECK(ag1, ag2) _args.stack->data->age >= ag1 &&_args.stack->data->age <= ag2
+#define CHECK(ag1, ag2)                                                                \
+  ({                                                                                   \
+    typeof(ag1) _ag1 = ag1;                                                             \
+    typeof(ag2) _ag2 = ag2;                                                              \
+    int result = (args.stack->data->age >= (_ag1) && args.stack->data->age <= (_ag2)); \
+    result;                                                                            \
+  })
 
 int main(int argc, char const *argv[])
 {
+    printf("Напишите кол-во студентов которых хотите добавить: ");
+    unsigned int n = 0;
+    scanf("%d", &n);
 
-  printf("Напишите кол-во студентов которых хотите добавить: ");
-  unsigned int n = 0;
-  scanf("%d", &n);
-
-  STUD *stud = NULL;
-  stud = stud_init(stud);
-  OBJ *stack = NULL;
+    STUD *stud = (STUD*) malloc(sizeof(STUD));
+    Students(stud);
+    Stack *stack = NULL;
 
 
-  struct args _args;
-  _args.stack = stack;
-  _args.stud = stud;
+    struct args args;
+    args.stack = stack;
+    args.stud = stud;
 
-  for (int i = 0; i < n; ++i)
-  {
-    _args.stud = studReadFromFile(_args.stud);
-    _args.stack = push(&_args);
-  }
-
-  for (int i = 0; i < n; ++i)
-  {
-    if (CHECK(16, 18))
+    for (int i = 0; i < n; ++i)
     {
-      printf("%s %s %d\n", _args.stack->data->family, _args.stack->data->name, _args.stack->data->age);
+        args.stud = studReadFromFile(args.stud);
+        args.stack = push(&args);
     }
-    _args.stack = pop(_args.stack);
-  }
 
-  return 0;
+
+    for (int i = 0; i < n; ++i)
+    {
+        if (CHECK(16, 18))
+        {
+            printf("%s %s %d\n", args.stack->data->family, args.stack->data->name, args.stack->data->age);
+        }
+        args.stack = pop(args.stack);
+    }
+
+    return 0;
 };
