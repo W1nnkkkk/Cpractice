@@ -6,8 +6,7 @@
   ({                                                                                   \
     typeof(ag1) _ag1 = ag1;                                                             \
     typeof(ag2) _ag2 = ag2;                                                              \
-    int result = (args.stack->data->age >= (_ag1) && args.stack->data->age <= (_ag2)); \
-    result;                                                                            \
+    (args.stack->data->age >= (_ag1) && args.stack->data->age <= (_ag2));                \
   })
 
 int main(int argc, char const *argv[])
@@ -19,7 +18,6 @@ int main(int argc, char const *argv[])
     STUD *stud = (STUD*) malloc(sizeof(STUD));
     Students(stud);
     Stack *stack = NULL;
-
 
     struct args args;
     args.stack = stack;

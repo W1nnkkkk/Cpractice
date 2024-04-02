@@ -21,6 +21,11 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "/app/extra/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeUnixFindMake.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "/app/extra/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake"
 		},
 		{
@@ -549,6 +554,21 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "/app/extra/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeFindCodeBlocks.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/app/extra/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/app/extra/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/ProcessorCount.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "/app/extra/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake"
 		},
 		{
@@ -743,8 +763,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/kirill/cpractice/practic16/cmake-build-debug",
-		"source" : "/home/kirill/cpractice/practic16"
+		"build" : "/home/kirill/cpractice/Cpractice/practic15/cmake-build-debug",
+		"source" : "/home/kirill/cpractice/Cpractice/practic15"
 	},
 	"version" : 
 	{

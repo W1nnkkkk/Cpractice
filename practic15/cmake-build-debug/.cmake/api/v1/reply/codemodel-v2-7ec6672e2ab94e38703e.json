@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/kirill/cpractice/practic15/cmake-build-debug",
-		"source" : "/home/kirill/cpractice/practic15"
+		"build" : "/home/kirill/cpractice/Cpractice/practic15/cmake-build-debug",
+		"source" : "/home/kirill/cpractice/Cpractice/practic15"
 	},
 	"version" : 
 	{

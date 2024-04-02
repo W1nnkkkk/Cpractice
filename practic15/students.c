@@ -18,7 +18,14 @@ void *stud_input(void *stud)
 
   file = fopen(PATH, "a");
 
-  fwrite(tmp, sizeof(*tmp), 1, file);
+  fwrite(tmp->family, sizeof(char[20]), 1, file);
+  fwrite(tmp->name, sizeof(char[20]), 1, file);
+  fwrite(tmp->gender, sizeof(char[1]), 1, file);
+  fwrite(tmp->group, sizeof(char[7]), 1, file);
+  fwrite(&tmp->age, sizeof(int), 1, file);
+  fwrite(&tmp->mathMark, sizeof(int), 1, file);
+  fwrite(&tmp->chemistryMark, sizeof(int), 1, file);
+  fwrite(&tmp->physicsMark, sizeof(int), 1, file);
 
   fclose(file);
 
@@ -56,12 +63,17 @@ void *studReadFromFile(void *stud)
 
   FILE *f;
 
-  f = fopen(PATH, "rb");
+  f = fopen(PATH, "r");
 
-  int offset = sizeof(*tmp) * size;
-
-  fseek(f, offset, SEEK_SET);
-  fread(tmp, sizeof(*tmp), 1, f);
+  fseek(f, SIZE * size, SEEK_SET);
+  fread(&tmp->family, sizeof(char[20]), 1, f);
+  fread(&tmp->name, sizeof(char[20]), 1, f);
+  fread(&tmp->gender, sizeof(char[1]), 1, f);
+  fread(&tmp->group, sizeof(char[7]), 1, f);
+  fread(&tmp->age, sizeof(int), 1, f);
+  fread(&tmp->mathMark, sizeof(int), 1, f);
+  fread(&tmp->chemistryMark, sizeof(int), 1, f);
+  fread(&tmp->physicsMark, sizeof(int), 1, f);
 
   size++;
 

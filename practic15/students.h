@@ -7,6 +7,7 @@
 
 #define PATH "test.txt"
 #define Students(stud) stud = stud_init(stud)
+#define SIZE sizeof(char[20]) + sizeof(char[20]) + sizeof(char[1]) + sizeof(char[7]) + sizeof(int) + sizeof(int) + sizeof(int) + sizeof(int)
 
 typedef struct students
 {

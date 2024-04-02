@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/practice.dir/main.c.o CMakeFiles/practice.dir/stack.c.o CMakeFiles/practice.dir/students.c.o -o practice 
