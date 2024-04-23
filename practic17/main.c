@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <Windows.h>
+#include <windows.h>
 
 #define bt2_id 2
 #define bt3_id 3
@@ -9,7 +9,7 @@
 
 HWND bt_quit;
 
-LRESULT wndProc(HWND hWnd, UINT message, WPARAM wparam, LPARAM lparam)
+LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
     if (message == WM_DESTROY)
         PostQuitMessage(0);
@@ -45,7 +45,7 @@ LRESULT wndProc(HWND hWnd, UINT message, WPARAM wparam, LPARAM lparam)
     return DefWindowProcA(hWnd, message, wparam, lparam);
 }
 
-int main()
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR cmdLine, int ss)
 {
     WNDCLASSA wcl;
     memset(&wcl, 0, sizeof(WNDCLASSA));
