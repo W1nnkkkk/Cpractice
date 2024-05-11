@@ -20,6 +20,7 @@ wchar_t* addUnderscoresToWords(const wchar_t* input) {
         wcscat(result, L"_");
         wcscat(result, token);
         wcscat(result, L"_");
+        wcscat(result, L" ");
 
         token = wcstok(NULL, delim, &saftyPtr);
     }
@@ -28,15 +29,21 @@ wchar_t* addUnderscoresToWords(const wchar_t* input) {
 }
 
 int main() {
-    const wchar_t* input = L"Пример строки для теста";
+    int maxLength = 1000;
+    wchar_t* input = (wchar_t*)malloc(maxLength * sizeof(wchar_t));
+    fgetws(input, maxLength, stdin);
+    input[wcslen(input) - 1] = ' ';
     wchar_t* result = addUnderscoresToWords(input);
 
     if (result != NULL) {
-        wprintf(L"Результат: %ls\n", result);
+        FILE* outputFile = fopen("output.txt", "w");
+        fputws(result, outputFile);
+        fclose(outputFile);
         free(result);
     } else {
         wprintf(L"Ошибка при выделении памяти.\n");
     }
+    free(input);
     
     return 0;
 }

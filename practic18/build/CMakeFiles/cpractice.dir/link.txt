@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/cpractice.dir/main.c.o -o cpractice
